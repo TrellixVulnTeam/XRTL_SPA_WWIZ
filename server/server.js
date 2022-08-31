@@ -174,7 +174,7 @@ io.on('connection', socket => {
     });
 
     //Returns the status of a experiment component
-    socket.once('status', payload => {
+    socket.on('status', payload => {
         var today = new Date();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
