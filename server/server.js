@@ -187,7 +187,7 @@ io.on('connection', socket => {
             componentList = [socket.id, time, payload.componentId, payload.status.busy];
         }
         socket.to(GUIId).emit("newLog", "New Status" + JSON.stringify(payload));
-        socket.emit("newComponent", componentList);
+        socket.to(GUIId).emit("newComponent", componentList);
 
         socket.broadcast.emit('status', payload);
         console.log("New status: ", payload)
